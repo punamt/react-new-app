@@ -5,17 +5,18 @@ module.exports = function validateLoginInput(data){
 
     let errors = {};
     
-    data.email = !isEmpty(data.name) ? email.name : '';
+    data.email = !isEmpty(data.email) ? data.email : '';
     data.password = !isEmpty(data.password) ? data.password : '';
    
 
     
 
     if(validator.isEmpty(data.email)) {
-        errors.email ='Name field is required';
+        errors.email ='Email field is required';
     }
+
     if(!validator.isEmail(data.email)) {
-        errors.email ='email is not valid';
+        errors.email ='Email is not valid';
     }
     
     if (!validator.isLength(data.password,{min : 2,max:30})){

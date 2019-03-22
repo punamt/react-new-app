@@ -76,9 +76,7 @@ router.post('/login',(req,res) => {
     if(!isValid){
         return res.status(400).json(errors);
     }
-    if(!isValid){
-        return res.status(400).json(errors);
-    }
+    
     User.findOne({email})
      .then(user =>{
          if(!user){
