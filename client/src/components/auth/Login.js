@@ -49,8 +49,8 @@ import classnames from 'classnames';
 }
 
 render() {
-    const {errors} = this.state;
-     const {user} = this.props.auth
+    const {errors} = this.state;  //value from store (errors = this.state.errors)
+     const {user} = this.props.auth //value from store  (user = this.props.auth)
 
 return (
   <div className="login">
