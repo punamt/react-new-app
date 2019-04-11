@@ -30,31 +30,36 @@ export const loginUser = userData => dispatch => {
     setAuthToken(token);
     //Decode token to get user data
     const decoded = jwt_decode(token);
+    
     //set redux store
     dispatch(setCurrentUser(decoded));
-
-
-  })
+})
   .catch(err => 
     dispatch({
       type: GET_ERRORS,
-      payload:err.response.data
+      payload: err.response.data
     }));
-}
+};
 
+//set logged in user
 export const setCurrentUser = (decoded) => {
+  
   return{
      type:SET_CURRENT_USER,
-     payoad:decoded
+     payload:decoded
   }
 }
 
 export const logoutUser = () => dispatch => {
-  //remove token from ls
+  //remove token from localstorage
   localStorage.removeItem('jwtToken');
-//remove auth header
+
+//remove auth header for future request
   setAuthToken(false);
 
-  //remove current user to { in redux}
+  //remove current user to {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}))
+  
 }
+ 
+ 

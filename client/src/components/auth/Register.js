@@ -36,8 +36,10 @@ import {withRouter} from 'react-router-dom';
       errors:{}
 
     };
+
+    //here we are firing action 
     this.props.registerUser(newUser,this.props.history); 
-     //here we are firing action 
+     
     //  axios.post('/api/users/register' ,newUser)  *ctrl+k+c for group comment
     //  .then(res => console.log(res.data)) 
     //  .catch(err => this.setState({errors:err.response.data}));

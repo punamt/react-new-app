@@ -10,17 +10,18 @@ import './App.css';
 import store from './store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
-import {setCurrentUser, loginUser} from'./actions/authActions';
-import setAuthToken from './utils/setAuthToken';
- 
+import {setCurrentUser, logoutUser} from'./actions/authActions';
+
 
   
 //check  for token 
 if(localStorage.jwtToken){
   //set auth token header
   setAuthToken(localStorage.jwtToken);
+
   //decode get user info
   const decoded = jwt_decode(localStorage.jwtToken);
+
   //set user and isAuthenticated in redux
    store.dispatch(setCurrentUser(decoded));
 
@@ -29,7 +30,7 @@ if(localStorage.jwtToken){
   if(decoded.exp < currentTime) {
     //logout user
     store.dispatch(logoutUser());
-    //
+    
     //redirect to loginUser
     window.location.href='/login';
   }
@@ -46,7 +47,6 @@ class App extends Component {
           <div className="container">
             <Route  exact path="/register" component={Register}/>
             <Route exact path="/login" component={Login}/>
-          
           </div>
           
           <Footer/>
