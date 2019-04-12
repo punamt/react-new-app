@@ -58,7 +58,7 @@ import Education from './Education';
     return (
       <div className="dashboard">
         <div className="container"> 
-          <div classname="row">
+          <div className="row">
             <div className="col-md-4">
               <h1 className="display-4">Dashboard</h1>
                 {dashboardContent}

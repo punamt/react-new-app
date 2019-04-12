@@ -6,7 +6,7 @@ import {
     GET_PROFILES,
     PROFILE_LOADING,
     CLEAR_CURRENT_PROFILE 
-} from '/types';
+} from './types';
 
 //GET current profile
 export const getCurrentProfile = () => dispatch => {
@@ -69,6 +69,17 @@ export const deleteExperience = (id) => dispatch => {
       payload:err.response.data
     }))
 };
+
+//Add education
+export const addEducation = (eduData,history) => dispatch => {
+    axios.post('/api/profile/education',eduData)
+    .then(res => history.push('/dashboard'))
+    .catch(err => dispatch({
+      type: GET_ERRORS,
+      payload:err.response.data
+    }))
+  };
+
 
 //delete education
 export const deleteEducation = (id) => dispatch => {

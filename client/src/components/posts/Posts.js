@@ -37,7 +37,7 @@ import { getPosts } from '../../actions/postActions';
 }
 Posts.propTypes = {
   getPosts:PropTypes.func.isRequired,
-  post:PropTypes.obj.isRequired
+  post:PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({

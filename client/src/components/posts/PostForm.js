@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import { addPost } from '../../actions/postActions';
+import classnames from 'classnames';
 
  class PostForm extends Component {
 
@@ -10,7 +11,8 @@ import { addPost } from '../../actions/postActions';
         super();
         this.state = {
             text:'',
-            errors:{}
+            errors:{},
+            info:''
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -50,15 +52,13 @@ import { addPost } from '../../actions/postActions';
           <div className="card-body">
             <form onSubmit={this.onSubmit}>
               <div className="form-group">
-                <input type={type} className={classnames('form-control form-control-lg', { 'is-invalid': error })}
-                  placeholder={placeholder}
-                  name={name}
-                  value={value}
-                  onChange={onChange}
-                  disabled={disabled}    
-                 />
-                {info && <small className="form-text text-muted">{info}</small>}
-                {error && <div className="invalid-feedback">{error}</div>}
+                <input type="text" className={classnames('form-control form-control-lg', { 'is-invalid': errors.text })}
+                  placeholder="Create a post"
+                  name="text"
+                  value={this.state.text}
+                  onChange={this.onChange}
+                  />
+               {errors && <div className="invalid-feedback">{errors}</div>}
               </div>
               <button type="submit" className="btn btn-dark">
                 Submit
