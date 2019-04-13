@@ -13,6 +13,7 @@ import Education from './Education';
  class Dashboard extends Component {
     componentDidMount() {
         this.props.getCurrentProfile();
+       // this.props.getProfileByHandle();
       }
     
       onDeleteClick(e) {
@@ -31,8 +32,8 @@ import Education from './Education';
             dashboardContent = (
                 <div>
                  <p className="lead text-muted">
-                    Welcome <Link to='/profile/${profile.handle}'></Link> 
-                 </p>
+                    Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link> 
+                </p>
                  <ProfileActions />
                  <Experience experience={profile.experience} />
                  <Education education={profile.education} />
@@ -73,6 +74,7 @@ import Education from './Education';
 }
 Dashboard.propTypes = {
     getCurrentProfile: PropTypes.func.isRequired,
+   // getProfileByHandle:PropTypes.func.isRequired,
     deleteAccount: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired

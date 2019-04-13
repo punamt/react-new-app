@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+//import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 import { addPost } from '../../actions/postActions';
 import classnames from 'classnames';
 
@@ -58,7 +58,7 @@ import classnames from 'classnames';
                   value={this.state.text}
                   onChange={this.onChange}
                   />
-               {errors && <div className="invalid-feedback">{errors}</div>}
+               {errors && <div className="invalid-feedback">{errors.text}</div>}
               </div>
               <button type="submit" className="btn btn-dark">
                 Submit
