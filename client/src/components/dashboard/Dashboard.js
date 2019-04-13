@@ -11,9 +11,20 @@ import Education from './Education';
 
 
  class Dashboard extends Component {
-    componentDidMount() {
-        this.props.getCurrentProfile();
-       // this.props.getProfileByHandle();
+   
+  componentDidMount() {
+      
+      /*setTimeout(
+        function() {
+          this.props.getCurrentProfile();
+        }
+        .bind(this),
+        3000
+    );*/
+
+       // setTimeOut(() => this.props.getCurrentProfile(),3000);
+          
+      this.props.getCurrentProfile(); //firing action
       }
     
       onDeleteClick(e) {
@@ -21,6 +32,7 @@ import Education from './Education';
       }
 
   render() {
+    console.log("profile" + this.props.profile.profile);
     const {user}= this.props.auth;
     const {profile,loading}  = this.props.profile;
     let dashboardContent;
@@ -75,7 +87,6 @@ import Education from './Education';
 }
 Dashboard.propTypes = {
     getCurrentProfile: PropTypes.func.isRequired,
-   // getProfileByHandle:PropTypes.func.isRequired,
     deleteAccount: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     profile: PropTypes.object.isRequired
@@ -86,6 +97,4 @@ Dashboard.propTypes = {
     auth: state.auth
   });
   
-  export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(
-    Dashboard
-  );
+  export default connect(mapStateToProps, { getCurrentProfile, deleteAccount })(Dashboard);

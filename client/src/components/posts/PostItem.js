@@ -1,40 +1,38 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import { deletePost, addLike, removeLike } from '../../actions/postActions';
 
-
 class PostItem extends Component {
+  onDeleteClick(id) {
+    this.props.deletePost(id);
+  }
 
-    onDeleteClick(id) {    //firing action
-        this.props.deletePost(id);  
-      }
-    
-      onLikeClick(id) {       //firing action
-        this.props.addLike(id);
-      }
-    
-      onUnlikeClick(id) {       //firing action
-        this.props.removeLike(id);
-      }
+  onLikeClick(id) {
+    this.props.addLike(id);
+  }
 
-      findUserLike(likes) {
-        const { auth } = this.props;
-        if (likes.filter(like => like.user === auth.user.id).length > 0) {
-          return true;
-        } else {
-          return false;
-        }
-      }
+  onUnlikeClick(id) {
+    this.props.removeLike(id);
+  }
+
+  findUserLike(likes) {
+    const { auth } = this.props;
+    if (likes.filter(like => like.user === auth.user.id).length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   render() {
     const { post, auth, showActions } = this.props;
 
     return (
-        <div className="card card-body mb-3">
-         <div className="row">
+      <div className="card card-body mb-3">
+        <div className="row">
           <div className="col-md-2">
             <Link to="/profile">
               <img
@@ -43,7 +41,6 @@ class PostItem extends Component {
                 alt=""
               />
             </Link>
-
             <br />
             <p className="text-center">{post.name}</p>
           </div>
@@ -87,26 +84,26 @@ class PostItem extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
 PostItem.defaultProps = {
-    showActions: true
-  };
-  
-  PostItem.propTypes = {
-    deletePost: PropTypes.func.isRequired,
-    addLike: PropTypes.func.isRequired,
-    removeLike: PropTypes.func.isRequired,
-    post: PropTypes.object.isRequired,
-    auth: PropTypes.object.isRequired
-  };
-  
-  const mapStateToProps = state => ({
-    auth: state.auth
-  });
-  
-  export default connect(mapStateToProps, { deletePost, addLike, removeLike })(
-    PostItem
-  );
+  showActions: true
+};
+
+PostItem.propTypes = {
+  deletePost: PropTypes.func.isRequired,
+  addLike: PropTypes.func.isRequired,
+  removeLike: PropTypes.func.isRequired,
+  post: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps, { deletePost, addLike, removeLike })(
+  PostItem
+);

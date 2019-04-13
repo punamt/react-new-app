@@ -29,7 +29,9 @@ import classnames from 'classnames';
    };
    this.props.loginUser(user);  ///firing action
    console.log(user);
+   
  }
+
 
  componentDidMount(){
    if(this.props.auth.isAuthenticated){
@@ -38,7 +40,7 @@ import classnames from 'classnames';
  }
 
  componentWillReceiveProps(nextProps){  //new set of props
-  console.log(nextProps); 
+  console.log("ccc" + nextProps); 
   if (nextProps.auth.isAuthenticated){
      this.props.history.push('/dashboard');
    }
