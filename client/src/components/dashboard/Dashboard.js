@@ -37,6 +37,7 @@ import Education from './Education';
                  <ProfileActions />
                  <Experience experience={profile.experience} />
                  <Education education={profile.education} />
+                 <div style={{ marginBottom: '60px' }} />
                  <button onClick={this.onDeleteClick.bind(this)} className="btn btn-danger">
                     Delete My Account
                  </button>  
@@ -60,7 +61,7 @@ import Education from './Education';
       <div className="dashboard">
         <div className="container"> 
           <div className="row">
-            <div className="col-md-4">
+            <div className="col-md-12">
               <h1 className="display-4">Dashboard</h1>
                 {dashboardContent}
             </div>
