@@ -10,22 +10,22 @@ import store from './store';
 
 import PrivateRoute from './components/common/PrivateRoute';
 
-import Navbar from '../src/components/layout/Navbar';
-import Footer from '../src/components/layout/Footer';
-import Landing from '../src/components/layout/Landing';
-import Register from '../src/components/auth/Register';
-import Login from '../src/components/auth/Login';
-import Dashboard from '../src/components/dashboard/Dashboard';
-import CreateProfile from '../src/components/create-profile/CreateProfile';
-import EditProfile from '../src/components/edit-profile/EditProfile';
-import AddExperience from '../src/components/add-credentials/AddExperience';
-import AddEducation from '../src/components/add-credentials/AddEducation';
-import Profiles from '../src/components/profiles/Profiles';
-import Profile from '../src/components/profile/Profile';
-import Posts from '../src/components/posts/Posts';
-import Post from '../src/components/post/Post';
-import NotFound from '../src/components/not-found/NotFound';
-import '../src/App.css';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+import Landing from './components/layout/Landing';
+import Register from './components/auth/Register';
+import Login from './components/auth/Login';
+import Dashboard from './components/dashboard/Dashboard';
+import CreateProfile from './components/create-profile/CreateProfile';
+import EditProfile from './components/edit-profile/EditProfile';
+import AddExperience from './components/add-credentials/AddExperience';
+import AddEducation from './components/add-credentials/AddEducation';
+import Profiles from './components/profiles/Profiles';
+import Profile from './components/profile/Profile';
+import Posts from './components/posts/Posts';
+import Post from './components/post/Post';
+import NotFound from './components/not-found/NotFound';
+import './App.css';
 
 
 
