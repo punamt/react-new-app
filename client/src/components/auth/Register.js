@@ -48,13 +48,13 @@ import {withRouter} from 'react-router-dom';
 
    componentDidMount(){
     if(this.props.auth.isAuthenticated){
-      this.props.history.push('/dashboard');
+      this.props.history.push('/dashboard'); //history.push is used to push to dashboard
     }
   }
 
-   componentWillReceiveProps(nextProps){
+   componentWillReceiveProps(nextProps){ 
      if (nextProps.errors){
-       this.setState({errors:nextProps.errors})
+       this.setState({errors:nextProps.errors})   //to set the errors made by user while entering the details 
      }
    }
   render() {
